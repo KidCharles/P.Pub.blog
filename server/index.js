@@ -16,6 +16,7 @@ massive(CONNECTION_STRING).then(db => {
 // Enpoints
 app.get("/api/posts", ctrl.getPosts);
 app.post("/api/publish", ctrl.addPost);
+app.put("/api/posts", ctrl.updatePost)
 
 app.listen(SERVER_PORT, () =>
   console.log(`server is Glistening on port ${SERVER_PORT}`)
