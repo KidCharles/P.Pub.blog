@@ -1,8 +1,8 @@
 require("dotenv").config();
 const express = require("express"),
   massive = require("massive"),
-  bodyParser = require("body-parser"), 
-  ctrl = require('./ctrl');
+  bodyParser = require("body-parser"),
+  ctrl = require("./ctrl");
 
 const { SERVER_PORT, CONNECTION_STRING } = process.env;
 
@@ -14,6 +14,9 @@ massive(CONNECTION_STRING).then(db => {
 });
 
 // Enpoints
-app.get('/api/posts', ctrl.getPosts )
+app.get("/api/posts", ctrl.getPosts);
+app.post("/api/publish", ctrl.addPost);
 
-app.listen(SERVER_PORT, () => console.log(`server is Glistening on port ${SERVER_PORT}`))
+app.listen(SERVER_PORT, () =>
+  console.log(`server is Glistening on port ${SERVER_PORT}`)
+);

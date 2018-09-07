@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import Nav from "./Nav";
+import { connect } from "react-redux";
+import { addPost } from "../ducks/reducer";
+import axios from "axios";
 import "./Blog.css";
 
 class Blog extends Component {
@@ -26,18 +29,32 @@ class Blog extends Component {
     this.setState({ text: val });
   };
 
-  publishPost = (e) => {
-    e.preventDefault()
+  publishPost = e => {
+    e.preventDefault();
     let body = {
       title: this.state.title,
       date: this.state.date,
       pic: this.state.pic,
       text: this.state.text
-    }
+    };
+    !body.title || !body.pic || !body.text
+      ? alert("Please fill out everything!")
+      : axios.post("/api/publish", body).then(post => {
+          this.props.addPost(post.data);
+          if (post.status === 200) {
+            this.setState(
+              {
+                title: "",
+                datepic: "",
+                text: ""
+              },
+              () => alert("successfully Added")
+            );
+          }
+        });
   };
 
   render() {
-    console.log(this.state);
     return (
       <div>
         <Nav />
@@ -75,11 +92,21 @@ class Blog extends Component {
             cols="90"
             rows="30"
           />
-          <div onClick={(e) => this.publishPost(e)}>Publish Post</div>
+          <div width="100px" onClick={e => this.publishPost(e)}>
+            Publish Post
+          </div>
         </div>
       </div>
     );
   }
 }
+function mapStateToProps(state) {
+  return {
+    posts: state.posts
+  };
+}
 
-export default Blog;
+export default connect(
+  mapStateToProps,
+  { addPost }
+)(Blog);
