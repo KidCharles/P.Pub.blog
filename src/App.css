@@ -1,0 +1,13 @@
+.App {
+  text-align: center;
+  --mainColor: #fff;
+  --secondaryColor: #fff;
+  --maintext: 'Raleway', sans-serif;
+  --secondarytext: 'Roboto Slab', serif;
+  --black : #555;
+  --white : #fff;
+  background: var(--mainColor);
+  font-family: var(--maintext); 
+  
+}
+
