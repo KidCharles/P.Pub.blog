@@ -1,54 +1,23 @@
 import React, { Component } from "react";
 import Nav from "./Nav";
-import Post from "./Post";
+import Post2 from "./Post2";
 import { connect } from "react-redux";
 import axios from "axios";
-import { getPosts } from "../ducks/reducer";
+import { getPosts, deletePost } from "../ducks/reducer";
 import "./Post.css";
 
 class Posts extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      posts: [],
-      id: 0,
-      title: "",
-      date: "",
-      pic: "",
-      text: "",
       editing: false,
       dropDown: false
     };
-    this.dropDownToggle=this.dropDownToggle.bind(this);
+    this.dropDownToggle = this.dropDownToggle.bind(this);
   }
   componentDidMount() {
-    // this.getPosts();
     this.props.getPosts();
   }
-
-  // getPosts = () => {
-  //   axios.get("/api/posts").then(res => {
-  //     this.setState({ posts: res.data });
-  //   });
-  // };
-
-  updateText = (val)=> {
-    this.setState({text:val})
-  }
-
-  updatePost(id) {
-    const { text } = this.state;
-    axios.put(`/api/posts?id=${id}`, { text }).then(res => {
-      this.setState({ posts: res.data });
-    });
-  }
-
-  deletPost(id) {
-    axios.delete(`/api/posts?id=${id}`).then(res => {
-      this.setState({ posts: res.data });
-    });
-  }
-
   editActive = () => {
     this.setState({ editing: true, dropDown: false });
   };
@@ -67,35 +36,28 @@ class Posts extends Component {
   };
 
   render() {
-    console.log(this.state)
     const { editing, dropDown } = this.state;
     let mappedPosts = this.props.posts.map((e, i) => {
       return (
-        <Post
+        <div key={i}>
+        <Post2
           e={e}
           i={i}
-          id={e.id}
-          title={e.title}
-          date={e.date}
-          pic={e.pic}
-          text={e.text}
-          key={i + e.id}
           dropDown={dropDown}
           editActiveFn={this.editActive}
           dropDownToggleFn={this.dropDownToggle}
-          deletPostFn={this.deletPost}
           editing={editing}
-          updatePostFn={this.updatePost}
-          editInactiveFn={this.editInactive}
-          updateTextFn={this.updateText}
           dropDownInactiveFn={this.dropDownInactive}
-        />
+          />
+        </div> 
       );
     });
     return (
-      <div className="post_wrapper">
+      <div className="post_wrapper ">
         <Nav />
+        <div className="textContainer backgroundPhoto">
         {mappedPosts}
+        </div> 
       </div>
     );
   }
@@ -107,7 +69,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(
-  mapStateToProps,
-  { getPosts }
-)(Posts);
+export default connect( mapStateToProps,{ getPosts, deletePost })(Posts);

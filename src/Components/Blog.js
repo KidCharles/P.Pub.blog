@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { addPost } from "../ducks/reducer";
 import axios from "axios";
 import "./Blog.css";
+import map from "../assets/map.png";
 
 class Blog extends Component {
   constructor() {
@@ -45,7 +46,8 @@ class Blog extends Component {
             this.setState(
               {
                 title: "",
-                datepic: "",
+                date: "",
+                pic: "",
                 text: ""
               },
               () => alert("successfully Added")
@@ -56,44 +58,51 @@ class Blog extends Component {
 
   render() {
     return (
-      <div>
+      <div className="post_wrapper">
         <Nav />
-        <div className="textContainer">
-          <input
-            type="text"
-            className=""
-            placeholder="title"
-            onChange={e => this.handleTitle(e.target.value)}
-            value={this.state.title}
-          />
-          <input
-            type="date"
-            className=""
-            placeholder="date"
-            onChange={e => this.handleDate(e.target.value)}
-            value={this.state.date}
-          />
-          <input
-            type="text"
-            className=""
-            placeholder="picture here"
-            onChange={e => this.handlePic(e.target.value)}
-            value={this.state.pic}
-          />
-          <textarea
-            // style={{
-            //   fontFamily: this.props.fontFamily,
-            //   color: this.props.fontColor,
-            //   fontSize: this.props.fontSize,
-            // }}
-            onChange={e => this.handleText(e.target.value)}
-            value={this.state.text}
-            placeholder="Start typing your thoughts here!"
-            cols="90"
-            rows="30"
-          />
-          <div width="100px" onClick={e => this.publishPost(e)}>
-            Publish Post
+        <div className="backgroundPhoto">
+          <div className="textContainer">
+            <input
+              type="text"
+              className=""
+              placeholder="title"
+              onChange={e => this.handleTitle(e.target.value)}
+              value={this.state.title}
+            />
+            <input
+              type="date"
+              className=""
+              placeholder="date"
+              onChange={e => this.handleDate(e.target.value)}
+              value={this.state.date}
+            />
+            <input
+              type="text"
+              className=""
+              placeholder="picture here"
+              onChange={e => this.handlePic(e.target.value)}
+              value={this.state.pic}
+            />
+            <textarea
+              // style={{
+              //   fontFamily: this.props.fontFamily,
+              //   color: this.props.fontColor,
+              //   fontSize: this.props.fontSize,
+              // }}
+              onChange={e => this.handleText(e.target.value)}
+              value={this.state.text}
+              placeholder="Start typing your thoughts here!"
+              cols="90"
+              rows="30"
+            />
+            {/* <img src={map} alt="map" className="map" /> */}
+            <div
+              className="wht_button"
+              width="100px"
+              onClick={e => this.publishPost(e)}
+            >
+              Publish Post
+            </div>
           </div>
         </div>
       </div>

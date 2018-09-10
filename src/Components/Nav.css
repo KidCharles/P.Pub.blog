@@ -1,22 +1,50 @@
-.nav_wrapper{
-    widows: 100vw;
-    height: 50px;
-    box-shadow:  0 1px 1px 0 rgba(0, 0, 0, 0.041), 0 1px 1px 0 rgba(0, 0, 0, 0.062), 0 0 1px 0 rgba(0, 0, 0, 0.041);
-    background-color: #FFF;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    font-weight: 400;
+.nav_wrapper {
+  widows: 100vw;
+  height: 60px;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.062), 0 0 1px 0 rgba(0, 0, 0, 0.041);
+  background-color: #fff;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+.logo_wrapper {
+  display: -webkit-inline-box;
+  margin-bottom: 8px;
+  
 }
 
-.nav_content{
-    width: 90vw;
-    height: 100%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-sizing: border-box;
-    padding: 0px 16px;
-    font-weight: 700;
+.logo_wrapper h1 {
+  padding-left: 10px;
+  padding-top: 24px;
+}
+
+.nav_content {
+  width: 90vw;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0px 16px;
+  font-weight: 700;
+}
+
+.list {
+  display: inherit;
+}
+
+.list_item {
+  padding: 0px 20px;
+  border-bottom: 3px solid transparent;
+  transition: border-bottom-color 50ms linear 0s;
+}
+
+.list_item:hover {
+  border-bottom-color: #555;
+}
+.list_item:active {
+  color: rgba(85, 85, 85, 0.671);
+  background-color: rgba(85, 85, 85, 0.075);
 }
 
