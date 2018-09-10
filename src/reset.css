@@ -41,3 +41,26 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+a {
+	color: inherit; /* blue colors for links too */
+  	text-decoration: inherit;
+}
+
+input{
+	text-rendering: auto;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    margin: 0em;
+	font: 400 11px system-ui;
+    margin-top: 7px;
+    height: 32px;
+	font-size: 16px;
+	box-sizing: border-box;
+}

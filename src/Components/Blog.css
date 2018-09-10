@@ -8,3 +8,26 @@
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
   margin-bottom: 50px;
 }
+
+.map{
+  position: absolute;
+  float: right;
+  height: 100vh;
+  height: 100%;
+  top: 60px;
+  z-index: 0;
+  transform: translateX(20%);
+
+}
+
+.listMap{
+  position: absolute;
+  float: right;
+  height: 100vh;
+  height: 100%;
+  top: 60px;
+  z-index: 0;
+  transform:  translateX(48%) ;
+
+
+}
