@@ -1,6 +1,6 @@
 .nav_wrapper {
   widows: 100vw;
-  height: 50px;
+  height: 60px;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.062), 0 0 1px 0 rgba(0, 0, 0, 0.041);
   background-color: #fff;
   letter-spacing: 1px;
@@ -9,6 +9,8 @@
 }
 .logo_wrapper {
   display: -webkit-inline-box;
+  margin-bottom: 8px;
+  
 }
 
 .logo_wrapper h1 {

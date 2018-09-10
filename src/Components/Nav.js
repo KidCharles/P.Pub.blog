@@ -9,14 +9,14 @@ export default class Nav extends Component {
     return (
       <div className="nav_wrapper">
         <div className="nav_content">
-          <Link to="/posts">
+          <Link to="/">
             <div className='logo_wrapper'>
               <img src={lantern} alt="logo" width='50px'/>
               <h1>Portland Book Club</h1>
             </div>
           </Link>
           <ul className="list">
-            <Link to="/">
+            <Link to="/posts">
               <li className="list_item">Create Post</li>
             </Link>
 

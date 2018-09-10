@@ -5,7 +5,7 @@ import '../App.css'
 export default function Post2(props) {
   return (
     <div className="post_card">
-      <img width="100px" src={props.e.pic} alt="uploaded" />
+      <img width="200px" src={props.e.pic} alt="uploaded" />
 
       <span className="post_title">{props.e.title}</span>
       <br/>
