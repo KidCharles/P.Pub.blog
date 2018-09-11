@@ -36,7 +36,7 @@ class Edit extends Component {
             <div className="post_card">
               <div className="post_contents">
                 <h1 className="post_title" key={i}>
-                  "{e.title}"
+                  edit : "{e.title}"
                 </h1>
                 <h4 className="post_date">{e.date}</h4>
               </div>
